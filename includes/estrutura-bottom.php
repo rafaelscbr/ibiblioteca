@@ -1,0 +1,5 @@
+<?php
+
+$bottom = '</body>
+</html>';
+
