@@ -1,8 +1,5 @@
 <?php include_once 'includes/estrutura-top.php' ?>
-<?php include_once 'includes/menu.php' ?>
-<?php include_once 'includes/estrutura-bottom.php'?>
 
-<?=$header?>
     <form action="" method="post">
         <label for="exemplo">Titulo: </label>
         <input type="text" name="titulo"/>
@@ -19,6 +16,6 @@
         <input type="submit" value="Cadastrar" />
     </form>
         
-    <?=$menu?>
+    <?php include_once 'includes/menu.php' ?>
 
- <?=$bottom?>
+<?php include_once 'includes/estrutura-bottom.php'?>

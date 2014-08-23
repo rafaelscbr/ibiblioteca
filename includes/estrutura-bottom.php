@@ -1,5 +1,5 @@
 <?php
 
-$bottom = '</body>
+echo '    </body>
 </html>';
 

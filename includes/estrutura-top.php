@@ -1,5 +1,5 @@
 <?php
-$header = '
+echo '
 <!DOCTYPE HTML>
 <html lang="pt-br">
     <head>
