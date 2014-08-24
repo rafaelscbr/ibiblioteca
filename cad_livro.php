@@ -1,21 +1,30 @@
 <?php include_once 'includes/estrutura-top.php' ?>
+<?php include_once 'helpers/querys.php' ?>
 
-    <form action="" method="post">
-        <label for="exemplo">Titulo: </label>
-        <input type="text" name="titulo"/>
-        <label for="exemplo">Descrição: </label>
-        <input type="text" name="descricao"/>
-        <label for="exemplo">Categoria </label>
-        <input type="text" name="categoria"/>
-        <label for="exemplo">Autor: </label>
-        <input type="text" name="autor"/>
-        <label for="exemplo">Editora: </label>
-        <input type="text" name="editora"/><br/>
-        <label for="exemplo">Data de Lançamento: </label>
-        <input type="date" name="data_lacamento"/>
-        <input type="submit" value="Cadastrar" />
-    </form>
-        
-    <?php include_once 'includes/menu.php' ?>
+<form action="functions/cad_livro.php" method="post">
+    <label for="exemplo">Titulo: </label>
+    <input type="text" name="titulo"/>
+    <label for="exemplo">Descrição: </label>
+    <input type="text" name="descricao"/>
+    <label for="exemplo">Categoria </label>
+    <input type="text" name="categoria"/>
+    <label for="exemplo">Autor: </label>
+    <select name="autor">
+        <?php while ($autor = $consulta_autores->fetch(PDO::FETCH_ASSOC)): ?>
+            <option value="<?php echo $autor['nome'] ?>"><?php echo $autor['nome'] ?></option>
+        <?php endwhile; ?>
+    </select>
+    <label for="exemplo">Editora: </label>
+    <select name="editora">
+        <?php while ($editora = $consulta_editoras->fetch(PDO::FETCH_ASSOC)): ?>
+            <option value="<?php echo $editora['nome'] ?>"><?php echo $editora['nome'] ?></option>
+        <?php endwhile; ?>
+    </select>
+    <label for="exemplo">Data de Lançamento: </label>
+    <input type="date" name="data_lancamento"/>
+    <input type="submit" value="Cadastrar" />
+</form>
 
-<?php include_once 'includes/estrutura-bottom.php'?>
+<?php include_once 'includes/menu.php' ?>
+
+<?php include_once 'includes/estrutura-bottom.php' ?>
