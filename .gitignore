@@ -4,9 +4,12 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
+.gitattributes
+.gitignore
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+nbproject/
 
 # Windows Installer files
 *.cab
@@ -26,7 +29,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
+Icon
+
 
 # Thumbnails
 ._*

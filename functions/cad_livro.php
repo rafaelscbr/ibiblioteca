@@ -10,15 +10,19 @@ $editora = $_POST['editora'];
 $data_lancamento = $_POST['data_lancamento'];
 $data_atual = date("d/m/y");
 
-$sql = "INSERT INTO livros (titulo, descricao, categoria, autor, editora, data_lancamento, data_cri, data_edit) VALUES (:titulo, :descricao, :categoria, :autor, :editora, :data_lancamento, :data_cri, :data_edit)";
-$q = $conn->prepare($sql);
-$q->execute(array(
-    ':titulo' => $titulo,
-    ':descricao' => $descricao,
-    ':categoria' => $categoria,
-    ':autor' => $autor,
-    ':editora' => $editora,
-    ':data_lancamento' => $data_lancamento,
-    'data_cri' => $data_atual,
-    'data_edit' => ''
-));
+try {
+    $sql = "INSERT INTO livros (titulo, descricao, categoria, autor, editora, data_lancamento, data_cri, data_edit) VALUES (:titulo, :descricao, :categoria, :autor, :editora, :data_lancamento, :data_cri, :data_edit)";
+    $q = $conn->prepare($sql);
+    $q->execute(array(
+        ':titulo' => $titulo,
+        ':descricao' => $descricao,
+        ':categoria' => $categoria,
+        ':autor' => $autor,
+        ':editora' => $editora,
+        ':data_lancamento' => $data_lancamento,
+        'data_cri' => $data_atual,
+        'data_edit' => ''
+    ));
+} catch (PDOException $e) {
+    echo 'Error: ' . $e->getMessage();
+}

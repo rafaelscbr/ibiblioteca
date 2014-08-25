@@ -21,6 +21,7 @@
         <td>sobrenome</td>
         <td>data_nascimento</td>
         <td>data_obito</td>
+        <td>Opcoes</td>
     </tr>
     <tr>
         <?php while ($autor = $consulta_autores->fetch(PDO::FETCH_ASSOC)): ?>
@@ -28,6 +29,7 @@
             <td><?php echo $autor['sobrenome'] ?></td>
             <td><?php echo $autor['data_nascimento'] ?></td>
             <td><?php echo $autor['data_obito'] ?></td>
+            <?php echo "<td><a href=edit_autor.php?id=".$autor['id_autor']."&nome=".$autor['nome']."&sobrenome=".$autor['sobrenome']."&data_nascimento=". $autor['data_nascimento']."&data_obito=".$autor['data_obito'].">Opções</a></td>"?>
         <?php endwhile; ?>
     </tr>
 </table>

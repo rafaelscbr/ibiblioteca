@@ -21,7 +21,8 @@
             <td><?php echo $livro['categoria'] ?></td>
             <td><?php echo $livro['autor'] ?></td>
             <td><?php echo $livro['editora'] ?></td>
-            <td></td>
+            <?php echo "<td><a href=edit_livro.php?id=" . $livro['id_livros'] . "&titulo=" . urlencode($livro['titulo']) . "&descricao=" . $livro['descricao'] . "&categoria=".$livro['categoria']."&autor=".$livro['autor']."&editora=".$livro['editora']."&data_lancamento=".$livro['data_lancamento'] . ">Opções</a></td>" ?>
+
         <?php endwhile; ?>
     </tr>
 </table>
