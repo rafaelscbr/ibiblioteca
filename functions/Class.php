@@ -158,7 +158,7 @@ class Editora extends Crud {
     }
 
     public function update($id_editora) {
-        $stmt = $this->db->prepare("UPDATE $this->table SET nome=:nome, data_fundacao=:data_fundacao, data_edit=:data_edit, WHERE id_editora=':id_editora'");
+        $stmt = $this->db->prepare("UPDATE $this->table SET nome=:nome, data_fundacao=:data_fundacao, data_edit=:data_edit WHERE id_editora=:id_editora");
         $stmt->bindParam(":nome", $this->nome);
         $stmt->bindParam(":data_fundacao", $this->data_fundacao);
         $stmt->bindParam(":data_edit", $this->data_edit);
