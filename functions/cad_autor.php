@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Class.php';
-require_once '../config/conexao.php';
+require_once '../helpers/conexao.php';
 
 print_r($_POST);
 
@@ -14,6 +14,3 @@ $autor->setData_nascimento($_POST['data_nascimento']);
 $autor->setData_obito($_POST['data_obito']);
 $autor->setData_cri($data_cri);
 $autor->insert();
-
-
-echo "Cadastrado com sucesso";

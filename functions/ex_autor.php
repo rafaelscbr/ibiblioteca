@@ -1,13 +1,9 @@
 <?php
 
-include_once '../config/conexao.php';
+include_once '../helpers/conexao.php';
+include_once 'Class.php';
 
-$id = $_GET['id'];
+$id_autor = $_GET['id'];
 
-try {
-  $sql = "DELETE FROM autores WHERE id_autor='". $id ."' ";
-  $conn->exec($sql);
-} catch (PDOException $e) {
-    echo 'Error: ' . $e->getMessage();
-}
-
+$autor = new Autor($db);
+$autor->delete($id_autor);

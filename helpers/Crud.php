@@ -16,11 +16,6 @@ abstract class Crud {
         return $stmt->execute();
     }
     
-    public function fetchAll() {
-        $stmt = $this->db->prepare('SELECT * FROM '. $this->table . '');
-        $stmt->execute();
-        
-        return $stmt->fetchAll();
-    }
+
 
 }
