@@ -11,9 +11,10 @@
 
 <?php include_once 'includes/menu.php' ?>
 
+
 <table border='1'>
     <tr>
-        <td>Nome</td>
+        <td>NOME</td>
         <td>Data Fundacao</td>
         <td>Opcoes</td>
     </tr>
