@@ -1,12 +1,11 @@
 <?php
 
-include_once '../config/conexao.php';
+include_once '../helpers/conexao.php';
+include_once 'Class.php';
 
-$id = $_GET['id'];
+$id_editora = $_GET['id'];
+$editora = new Editora($db);
 
-try {
-  $sql = "DELETE FROM editoras WHERE id_editora='". $id ."' ";
-  $conn->exec($sql);
-} catch (PDOException $e) {
-    echo 'Error: ' . $e->getMessage();
-}
+$editora->delete($id_editora);
+
+header('Location: http://127.0.0.1/ibiblioteca/index.php?exc=ok');

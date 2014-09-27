@@ -1,11 +1,11 @@
-<?php 
-include_once '../config/conexao.php';
+<?php
 
-$id = $_GET['id'];
+include_once '../helpers/conexao.php';
+include_once 'Class.php';
 
-try {
-  $sql = "DELETE FROM livros WHERE id_livros='". $id ."' ";
-  $conn->exec($sql);
-} catch (PDOException $e) {
-    echo 'Error: ' . $e->getMessage();
-}
+$id_livro = $_GET['id'];
+$livro = new Livro($db);
+$livro->delete($id_livro);
+
+header('Location: http://127.0.0.1/ibiblioteca/index.php?exc=ok');
+

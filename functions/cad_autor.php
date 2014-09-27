@@ -14,3 +14,5 @@ $autor->setData_nascimento($_POST['data_nascimento']);
 $autor->setData_obito($_POST['data_obito']);
 $autor->setData_cri($data_cri);
 $autor->insert();
+
+header('Location: http://127.0.0.1/ibiblioteca/index.php?cad=ok');

@@ -15,5 +15,4 @@ $autor->setData_obito($_POST['data_obito']);
 $autor->setData_edit($data_edit);
 $autor->update($id_autor);
 
-print_r($_POST);
-
+header('Location: http://127.0.0.1/ibiblioteca/index.php?edit=ok');
