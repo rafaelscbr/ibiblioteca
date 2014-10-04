@@ -8,8 +8,4 @@ abstract class Crud {
     public function __construct(PDO $db) {
         $this->db = $db;
     }
-
-    abstract public function insert();    
-
-
 }

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Class.php';
+require_once 'autor.php';
 require_once '../helpers/conexao.php';
 
 print_r($_POST);
@@ -15,4 +15,4 @@ $autor->setData_obito($_POST['data_obito']);
 $autor->setData_cri($data_cri);
 $autor->insert();
 
-header('Location: http://127.0.0.1/ibiblioteca/index.php?cad=ok');
+header('Location: http://127.0.0.1:8080/ibiblioteca/index.php?cad=ok');

@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `livros` (
   `categoria` varchar(45) DEFAULT NULL,
   `autor` varchar(45) DEFAULT NULL,
   `editora` varchar(45) DEFAULT NULL,
-  `data_lacamento` varchar(15) DEFAULT NULL,
+  `data_lancamento` varchar(15) DEFAULT NULL,
   `data_cri` varchar(15) DEFAULT NULL,
   `data_edit` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id_livros`)

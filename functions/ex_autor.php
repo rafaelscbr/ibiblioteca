@@ -1,7 +1,7 @@
 <?php
 
-include_once '../helpers/conexao.php';
-include_once 'Class.php';
+require_once 'autor.php';
+require_once '../helpers/conexao.php';
 
 $id_autor = $_GET['id'];
 

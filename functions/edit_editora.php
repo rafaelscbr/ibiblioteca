@@ -1,7 +1,7 @@
 <?php
 
 include_once '../helpers/conexao.php';
-include_once 'Class.php';
+require_once 'editora.php';
 
 $data_atual = date('d/m/Y');
 

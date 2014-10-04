@@ -1,7 +1,7 @@
 <?php
 
 include_once '../helpers/conexao.php';
-include_once 'Class.php';
+require_once 'autor.php';
 
 $data_edit = date('d/m/Y');
 
