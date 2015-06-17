@@ -1,7 +1,7 @@
 <?php
 
-require_once '../helpers/conexao.php';
-require_once '../helpers/Crud.php';
+require_once  __DIR__ . '/../config/conexao.php';
+require_once 'Crud.php';
 
 class Autor extends Crud {
 
@@ -85,16 +85,10 @@ class Autor extends Crud {
     }
 
     public function delete($id_autor) {
+        
         $stmt = $this->db->prepare("DELETE FROM $this->table WHERE id_autor=':id_autor'");
-        $stmt->bindParam(":id_autor", $this->id_autor);
+        $stmt->bindParam(":id_autor", $id_autor);
         $stmt->execute();
     }
-
-    public function fetchAll() {
-        $stmt = $this->db->prepare("SELECT * FROM $this->table");
-        $stmt->execute();
-
-        return $stmt->fetchAll();
-    }
-
+    
 }

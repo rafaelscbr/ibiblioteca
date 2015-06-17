@@ -1,27 +1,20 @@
-<?php include_once 'includes/estrutura-top.php' ?>
-<?php include_once 'helpers/querys.php' ?>
-
-<h1>Busca de livros</h1>
-
 <?php
+include_once 'includes/estrutura-top.php';
+include_once __DIR__ . '/../config/querys.php';
+
 if (isset($_GET['exc'])) {
     echo "<script>alert('Excluido com sucesso')</script>";
-}
-?>
-
-<?php
-if (isset($_GET['edit'])) {
+} elseif (isset($_GET['edit'])) {
     echo "<script>alert('Editado com sucesso')</script>";
-}
-?>
-
-<?php
-if (isset($_GET['cad'])) {
+} elseif (isset($_GET['cad'])) {
     echo "<script>alert('Cadastrado com sucesso')</script>";
 }
 ?>
 
+<h1>Busca de livros</h1>
+
 <?php include_once 'includes/menu.php' ?>
+
 <br/>
 <table border='1'>
     <tr>

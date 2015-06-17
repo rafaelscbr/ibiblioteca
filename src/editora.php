@@ -1,7 +1,7 @@
 <?php
 
-require_once '../helpers/conexao.php';
-require_once '../helpers/Crud.php';
+require_once  __DIR__ . '/../config/conexao.php';
+require_once 'Crud.php';
 
 class Editora extends Crud {
 
