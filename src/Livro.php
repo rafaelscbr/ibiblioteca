@@ -1,6 +1,5 @@
 <?php
 
-require_once  __DIR__ . '/../config/conexao.php';
 require_once 'Crud.php';
 
 class Livro extends Crud {
@@ -107,7 +106,7 @@ class Livro extends Crud {
     }
 
     public function delete($id_livro) {
-        $stmt = $this->db->prepare("DELETE FROM $this->table WHERE id_autor=:id_livros");
+        $stmt = $this->db->prepare("DELETE FROM $this->table WHERE id_livros=:id_livros");
         $stmt->bindParam(":id_livros", $id_livro);
         $stmt->execute();
     }

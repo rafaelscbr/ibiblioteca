@@ -1,10 +1,8 @@
 <?php
 
-function cadastrarLivro() {
-    require_once  __DIR__ . '/../../src/livro.php';
-    require_once  __DIR__ . '/../../config/conexao.php';
+require_once  __DIR__ . '/../../src/autoload.php';
 
-    $data_atual = date('d/m/Y');
+function cadastrarLivro($db, $data_alt) {
 
     $livro = new Livro($db);
 
@@ -14,49 +12,49 @@ function cadastrarLivro() {
     $livro->setAutor($_POST['autor']);
     $livro->setEditora($_POST['editora']);
     $livro->setData_lancamento($_POST['data_lancamento']);
-    $livro->setData_cri($data_atual);
+    $livro->setData_cri($data_alt);
     $livro->insert();
 
-    return header("Location: http://localhost:8080/index.php?cad=ok");
+    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php?cad=ok");
 }
 
-function editarLivro() {
+function editarLivro($db, $data_alt) {
 
-    require_once  __DIR__ . '/../../src/livro.php';
-    require_once  __DIR__ . '/../../config/conexao.php';
-
-    $data_atual = date('d/m/Y');
     $id_livro = $_POST['id'];
 
     $livro = new Livro($db);
 
     $livro->setTitulo($_POST['titulo']);
     $livro->setDescricao($_POST['descricao']);
+    $livro->setCategoria($_POST['categoria']);
     $livro->setAutor($_POST['autor']);
     $livro->setEditora($_POST['editora']);
     $livro->setData_lancamento($_POST['data_lancamento']);
-    $livro->setData_edit($data_atual);
+    $livro->setData_edit($data_alt);
     $livro->update($id_livro);
 
-    return header("Location: http://localhost:8080/index.php?edit=ok");
+    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php?edit=ok");
 }
 
-function excluirLivro() {
-
-    require_once  __DIR__ . '/../../src/livro.php';
-    require_once  __DIR__ . '/../../config/conexao.php';
+function excluirLivro($db) {
 
     $id_livro = $_GET['id'];
+
     $livro = new Livro($db);
     $livro->delete($id_livro);
 
-    return header("Location: http://localhost:8080/index.php?exc=ok");
+    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php?exc=ok");
 }
 
+$db = new db();
+$data_alt = date("d/m/Y");
+
 if (isset($_POST['cad_livro'])) {
-    cadastrarLivro();
-} elseif (isset($_POST['edit_livro'])) {
-    editarLivro();
-} elseif (isset($_GET['id'])) {
-    excluirLivro();
+    cadastrarLivro($db, $data_alt);
+}
+elseif (isset($_POST['edit_livro'])) {
+    editarLivro($db, $data_alt);
+}
+elseif (isset($_GET['id'])) {
+    excluirLivro($db);
 }

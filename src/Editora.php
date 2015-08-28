@@ -1,6 +1,5 @@
 <?php
 
-require_once  __DIR__ . '/../config/conexao.php';
 require_once 'Crud.php';
 
 class Editora extends Crud {
