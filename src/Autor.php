@@ -1,6 +1,5 @@
 <?php
 
-require_once  __DIR__ . '/../config/conexao.php';
 require_once 'Crud.php';
 
 class Autor extends Crud {
@@ -63,7 +62,7 @@ class Autor extends Crud {
     }
 
     public function insert() {
-        $stmt = $this->db->prepare("INSERT INTO  $this->table (nome, sobrenome, data_nascimento, data_obito, data_cri) VALUES(:nome, :sobrenome, :data_nascimento, :data_obito, :data_cri)");
+        $stmt = $this->db->prepare("INSERT INTO $this->table (nome, sobrenome, data_nascimento, data_obito, data_cri) VALUES(:nome, :sobrenome, :data_nascimento, :data_obito, :data_cri)");
         $stmt->bindParam(":nome", $this->nome);
         $stmt->bindParam(":sobrenome", $this->sobrenome);
         $stmt->bindParam(":data_nascimento", $this->data_nascimento);
@@ -85,10 +84,9 @@ class Autor extends Crud {
     }
 
     public function delete($id_autor) {
-        
-        $stmt = $this->db->prepare("DELETE FROM $this->table WHERE id_autor=':id_autor'");
+        $stmt = $this->db->prepare("DELETE FROM $this->table WHERE id_autor=:id_autor");
         $stmt->bindParam(":id_autor", $id_autor);
         $stmt->execute();
     }
-    
+
 }

@@ -25,14 +25,14 @@ include_once __DIR__ . '/../config/querys.php';
         <td>data_obito</td>
         <td>Opcoes</td>
     </tr>
-    
+
     <?php while ($autor = $consulta_autores->fetch(PDO::FETCH_ASSOC)): ?>
         <tr>
             <td><?php echo $autor['nome'] ?></td>
             <td><?php echo $autor['sobrenome'] ?></td>
             <td><?php echo $autor['data_nascimento'] ?></td>
             <td><?php echo $autor['data_obito'] ?></td>
-            <?php echo "<td><a href=edit_autor.php?id=" . $autor['id_autor'] . "&nome=" . $autor['nome'] . "&sobrenome=" . $autor['sobrenome'] . "&data_nascimento=" . $autor['data_nascimento'] . "&data_obito=" . $autor['data_obito'] . ">Opções</a></td>" ?>       
+            <?php echo "<td><a href=edit_autor.php?id=" . $autor['id_autor'] . "&nome=" . $autor['nome'] . "&sobrenome=" . $autor['sobrenome'] . "&data_nascimento=" . $autor['data_nascimento'] . "&data_obito=" . $autor['data_obito'] . ">Opções</a></td>" ?>
         </tr>
     <?php endwhile ?>
 </table>

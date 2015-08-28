@@ -1,27 +1,21 @@
 <?php
 
-function cadastrarAutor() {
-    require_once  __DIR__ . '/../../src/autor.php';
-    require_once  __DIR__ . '/../../config/conexao.php';
+require_once  __DIR__ . '/../../src/autoload.php';
 
-    $data_cri = date("d/m/Y");
+function cadastrarAutor($db, $data_alt) {
 
     $autor = new Autor($db);
     $autor->setNome($_POST['nome']);
     $autor->setSobrenome($_POST['sobrenome']);
     $autor->setData_nascimento($_POST['data_nascimento']);
     $autor->setData_obito($_POST['data_obito']);
-    $autor->setData_cri($data_cri);
+    $autor->setData_cri($data_alt);
     $autor->insert();
 
-    return header("Location: http://localhost:8080/index.php?cad=ok");
+    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php?cad=ok");
 }
 
-function editarAutor() {
-    require_once  __DIR__ . '/../../src/autor.php';
-    require_once  __DIR__ . '/../../config/conexao.php';
-
-    $data_edit = date('d/m/Y');
+function editarAutor($db, $data_alt) {
 
     $id_autor = $_POST['id'];
 
@@ -30,30 +24,31 @@ function editarAutor() {
     $autor->setSobrenome($_POST['sobrenome']);
     $autor->setData_nascimento($_POST['data_nascimento']);
     $autor->setData_obito($_POST['data_obito']);
-    $autor->setData_edit($data_edit);
+    $autor->setData_edit($data_alt);
     $autor->update($id_autor);
 
-    return header("Location: http://localhost:8080/index.php?edit=ok");
+    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php?edit=ok");
 }
 
-function excluirAutor() {
-    require_once  __DIR__ . '/../../src/autor.php';
-    require_once  __DIR__ . '/../../config/conexao.php';
+function excluirAutor($db) {
 
     $autor = new Autor($db);
     $autor->delete($_GET['id']);
-    
-    return header("Location: http://localhost:8080/index.php?exc=ok");
+
+    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php?exc=ok");
 }
 
+$db = new db();
+$data_alt = date("d/m/Y");
+
 if (isset($_POST['cad_autor'])) {
-    cadastrarAutor();
+    cadastrarAutor($db, $data_alt);
 }
 elseif (isset($_POST['edit_autor'])) {
-    editarAutor();
+    editarAutor($db);
 }
  elseif (isset($_GET['id'])) {
-    excluirAutor();
+    excluirAutor($db);
 }
 
 
