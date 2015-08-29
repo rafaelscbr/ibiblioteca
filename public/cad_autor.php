@@ -1,29 +1,46 @@
-<?php
-include_once 'includes/estrutura-top.php';
-include_once __DIR__ . '/../config/querys.php';
-?>
+<?php include_once 'includes/estrutura-top.php'; ?>
 
 <form action="/actions/autor.php" method="post">
-    <label for="exemplo">Nome: </label>
-    <input type="text" name="nome"/>
-    <label for="exemplo">Sobre Nome: </label>
-    <input type="text" name="sobrenome"/>
-    <label for="exemplo">Data de Nascimento: </label>
-    <input type="date" name="data_nascimento"/>
-    <label for="exemplo">Data de Obito: </label>
-    <input type="date" name="data_obito"/>
-    <input type="submit" name="cad_autor" value="Cadastrar" />
+
+    <div class="form-group row">
+        <label for="Nome" class="col-sm-2 form-control-label">Nome: </label>
+        <div class="col-sm-6">
+            <input class="form-control" type="text" name="nome"/>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="Sobre nome" class="col-sm-2 form-control-label">Sobre Nome </label>
+        <div class="col-sm-6">
+            <input class="form-control" type="text" name="sobrenome"/>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="Nome" class="col-sm-2 form-control-label">Data Nascimento: </label>
+        <div class="col-md-3">
+            <input class="form-control" type="date" name="data_nascimento"/>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="Nome" class="col-sm-2 form-control-label">Data Obito: </label>
+        <div class="col-md-3">
+            <input class="form-control" type="date" name="data_obito"/>
+        </div>
+    </div>
+
+    <input class="btn btn-primary" type="submit" name="cad_autor" value="Cadastrar" />
+
 </form>
 
-<?php include_once 'includes/menu.php' ?>
-
-<table border='1'>
+<table class="table">
     <tr>
         <td>nome</td>
         <td>sobrenome</td>
         <td>data_nascimento</td>
         <td>data_obito</td>
-        <td>Opcoes</td>
+        <td>Opções</td>
     </tr>
 
     <?php while ($autor = $consulta_autores->fetch(PDO::FETCH_ASSOC)): ?>
@@ -32,10 +49,10 @@ include_once __DIR__ . '/../config/querys.php';
             <td><?php echo $autor['sobrenome'] ?></td>
             <td><?php echo $autor['data_nascimento'] ?></td>
             <td><?php echo $autor['data_obito'] ?></td>
-            <?php echo "<td><a href=edit_autor.php?id=" . $autor['id_autor'] . "&nome=" . $autor['nome'] . "&sobrenome=" . $autor['sobrenome'] . "&data_nascimento=" . $autor['data_nascimento'] . "&data_obito=" . $autor['data_obito'] . ">Opções</a></td>" ?>
+            <?php echo "<td><a class='btn btn-primary' href=edit_autor.php?id=" . $autor['id_autor'] . "&nome=" . $autor['nome'] . "&sobrenome=" . $autor['sobrenome'] . "&data_nascimento=" . $autor['data_nascimento'] . "&data_obito=" . $autor['data_obito'] . "><i class='fa fa-search'></i></a></td>" ?>
         </tr>
     <?php endwhile ?>
 </table>
 
-<?php include_once 'includes/estrutura-bottom.php' ?>
+<?php include_once 'includes/estrutura-bottom.php'; ?>
 

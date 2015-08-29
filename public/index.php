@@ -1,6 +1,5 @@
 <?php
 include_once 'includes/estrutura-top.php';
-include_once __DIR__ . '/../config/querys.php';
 
 if (isset($_GET['exc'])) {
     echo "<script>alert('Excluido com sucesso')</script>";
@@ -11,12 +10,9 @@ if (isset($_GET['exc'])) {
 }
 ?>
 
-<h1>Busca de livros</h1>
+<h1>Lista de livros</h1>
 
-<?php include_once 'includes/menu.php' ?>
-
-<br/>
-<table border='1'>
+<table class="table">
     <tr>
         <td>titulo</td>
         <td>descricao</td>
@@ -33,12 +29,12 @@ if (isset($_GET['exc'])) {
             <td><?php echo $livro['categoria'] ?></td>
             <td><?php echo $livro['autor'] ?></td>
             <td><?php echo $livro['editora'] ?></td>
-            <?php echo "<td><a href=edit_livro.php?id=" . $livro['id_livros'] . "&titulo=" . urlencode($livro['titulo']) . "&descricao=" . $livro['descricao'] . "&categoria=" . $livro['categoria'] . "&autor=" . $livro['autor'] . "&editora=" . $livro['editora'] . "&data_lancamento=" . $livro['data_lancamento'] . ">Opções</a></td>" ?>
+            <?php echo "<td><a class='btn btn-primary' href=edit_livro.php?id=" . $livro['id_livros'] . "&titulo=" . urlencode($livro['titulo']) . "&descricao=" . $livro['descricao'] . "&categoria=" . $livro['categoria'] . "&autor=" . $livro['autor'] . "&editora=" . $livro['editora'] . "&data_lancamento=" . $livro['data_lancamento'] . "><i class='fa fa-search'></i></a></td>" ?>
         </tr>
     <?php endwhile; ?>
 
 </table>
 
-
+</div>
 
 <?php include_once 'includes/estrutura-bottom.php' ?>

@@ -1,30 +1,57 @@
-<?php
-include_once 'includes/estrutura-top.php';
-include_once __DIR__ . '/../config/querys.php';
-?>
+<?php include_once 'includes/estrutura-top.php'; ?>
 
 <form action="actions/livro.php" method="post">
-    <label for="exemplo">Titulo: </label>
-    <input type="text" name="titulo"/>
-    <label for="exemplo">Descrição: </label>
-    <input type="text" name="descricao"/>
-    <label for="exemplo">Categoria </label>
-    <input type="text" name="categoria"/>
-    <label for="exemplo">Autor: </label>
-    <select name="autor">
-        <?php while ($autor = $consulta_autores->fetch(PDO::FETCH_ASSOC)): ?>
-            <option value="<?php echo $autor['nome'] ?>"><?php echo $autor['nome'] ?></option>
-        <?php endwhile; ?>
-    </select>
-    <label for="exemplo">Editora: </label>
-    <select name="editora">
-        <?php while ($editora = $consulta_editoras->fetch(PDO::FETCH_ASSOC)): ?>
-            <option value="<?php echo $editora['nome'] ?>"><?php echo $editora['nome'] ?></option>
-        <?php endwhile; ?>
-    </select>
-    <label for="exemplo">Data de Lançamento: </label>
-    <input type="date" name="data_lancamento"/>
-    <input type="submit" name="cad_livro" value="Cadastrar" />
+
+    <div class="form-group row">
+        <label for="Titulo" class="col-sm-2 form-control-label">Titulo: </label>
+        <div class="col-sm-6">
+            <input class="form-control" type="text" name="titulo"/>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="Descrição" class="col-sm-2 form-control-label">Descrição: </label>
+        <div class="col-sm-6">
+            <input class="form-control" type="text" name="descricao"/>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="Categoria" class="col-sm-2 form-control-label">Categoria: </label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="categoria"/>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="Autor" class="col-sm-2 form-control-label">Autor: </label>
+        <div class="col-sm-4">
+            <select class="form-control" name="autor">
+                <?php while ($autor = $consulta_autores->fetch(PDO::FETCH_ASSOC)): ?>
+                    <option value="<?php echo $autor['nome'] ?>"><?php echo $autor['nome'] ?></option>
+                <?php endwhile; ?>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="Editora" class="col-sm-2 form-control-label">Editora: </label>
+        <div class="col-sm-4">
+            <select class="form-control" name="editora">
+                <?php while ($editora = $consulta_editoras->fetch(PDO::FETCH_ASSOC)): ?>
+                    <option value="<?php echo $editora['nome'] ?>"><?php echo $editora['nome'] ?></option>
+                <?php endwhile; ?>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="Editora" class="col-sm-2 form-control-label">Editora: </label>
+        <div class="col-sm-4">
+            <input class="form-control" type="date" name="data_lancamento"/>
+        </div>
+    </div>
+    <input class="btn btn-primary" type="submit" name="cad_livro" value="Cadastrar" />
 </form>
 
 <?php include_once 'includes/menu.php' ?>

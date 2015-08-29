@@ -1,0 +1,11 @@
+nav.navbar.navbar-dark.bg-inverse {
+  margin-bottom: 30px;
+}
+
+form {
+    margin-bottom: 30px;
+}
+
+input[type=date].form-control, input[type=time].form-control, input[type=datetime-local].form-control, input[type=month].form-control {
+    line-height: 15px !important;
+}
