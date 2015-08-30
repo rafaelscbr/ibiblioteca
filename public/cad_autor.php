@@ -5,14 +5,14 @@
     <div class="form-group row">
         <label for="Nome" class="col-sm-2 form-control-label">Nome: </label>
         <div class="col-sm-6">
-            <input class="form-control" type="text" name="nome"/>
+            <input class="form-control" type="text" name="nome" required/>
         </div>
     </div>
 
     <div class="form-group row">
         <label for="Sobre nome" class="col-sm-2 form-control-label">Sobre Nome </label>
         <div class="col-sm-6">
-            <input class="form-control" type="text" name="sobrenome"/>
+            <input class="form-control" type="text" name="sobrenome" required/>
         </div>
     </div>
 

@@ -4,7 +4,7 @@
     <div class="form-group row">
         <label for="Nome" class="col-sm-2 form-control-label">Nome: </label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="nome"/>
+            <input type="text" class="form-control" name="nome" required/>
         </div>
     </div>
 

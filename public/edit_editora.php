@@ -5,7 +5,7 @@
         <label for="Nome" class="col-sm-2 form-control-label">Nome: </label>
         <div class="col-sm-6">
             <input type="hidden" value='<?php echo $_GET['id'] ?>' name="id"/>
-            <input type="text" value='<?php echo $_GET['nome'] ?>' class="form-control" name="nome"/>
+            <input type="text" value='<?php echo $_GET['nome'] ?>' class="form-control" name="nome" required/>
         </div>
     </div>
 
