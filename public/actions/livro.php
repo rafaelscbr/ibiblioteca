@@ -15,7 +15,7 @@ function cadastrarLivro($db, $data_alt) {
     $livro->setData_cri($data_alt);
     $livro->insert();
 
-    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php?cad=ok");
+    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php");
 }
 
 function editarLivro($db, $data_alt) {
@@ -33,7 +33,7 @@ function editarLivro($db, $data_alt) {
     $livro->setData_edit($data_alt);
     $livro->update($id_livro);
 
-    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php?edit=ok");
+    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php");
 }
 
 function excluirLivro($db) {
@@ -43,7 +43,7 @@ function excluirLivro($db) {
     $livro = new Livro($db);
     $livro->delete($id_livro);
 
-    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php?exc=ok");
+    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php");
 }
 
 $db = new db();

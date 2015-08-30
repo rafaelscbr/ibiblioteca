@@ -12,7 +12,7 @@ function cadastrarAutor($db, $data_alt) {
     $autor->setData_cri($data_alt);
     $autor->insert();
 
-    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php?cad=ok");
+    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/cad_autor.php");
 }
 
 function editarAutor($db, $data_alt) {
@@ -27,7 +27,7 @@ function editarAutor($db, $data_alt) {
     $autor->setData_edit($data_alt);
     $autor->update($id_autor);
 
-    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php?edit=ok");
+    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/cad_autor.php");
 }
 
 function excluirAutor($db) {
@@ -35,7 +35,7 @@ function excluirAutor($db) {
     $autor = new Autor($db);
     $autor->delete($_GET['id']);
 
-    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php?exc=ok");
+    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/cad_autor.php");
 }
 
 $db = new db();

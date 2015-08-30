@@ -1,14 +1,4 @@
-<?php
-include_once 'includes/estrutura-top.php';
-
-if (isset($_GET['exc'])) {
-    echo "<script>alert('Excluido com sucesso')</script>";
-} elseif (isset($_GET['edit'])) {
-    echo "<script>alert('Editado com sucesso')</script>";
-} elseif (isset($_GET['cad'])) {
-    echo "<script>alert('Cadastrado com sucesso')</script>";
-}
-?>
+<?php include_once 'includes/estrutura-top.php'; ?>
 
 <h1>Lista de livros</h1>
 
@@ -34,7 +24,5 @@ if (isset($_GET['exc'])) {
     <?php endwhile; ?>
 
 </table>
-
-</div>
 
 <?php include_once 'includes/estrutura-bottom.php' ?>

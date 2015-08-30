@@ -10,7 +10,7 @@ function cadastrarEditora($db, $data_alt) {
     $editora->setData_cri($data_alt);
     $editora->insert();
 
-    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php?cad=ok");
+    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/cad_editora.php");
 }
 
 function editarEditora($db, $data_alt) {
@@ -23,7 +23,7 @@ function editarEditora($db, $data_alt) {
     $editora->setData_edit($data_alt);
     $editora->update($id_editora);
 
-    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php?edit=ok");
+    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/cad_editora.php");
 }
 
 function excluirEditora($db) {
@@ -33,7 +33,7 @@ function excluirEditora($db) {
 
     $editora->delete($id_editora);
 
-    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/index.php?exc=ok");
+    return header("Location: http://". $_SERVER['SERVER_NAME'] ."/cad_editora.php");
 }
 
 $db = new db();
