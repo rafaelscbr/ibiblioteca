@@ -1,28 +1,48 @@
-<?php include_once 'includes/estrutura-top.php'; ?>
+<?php include_once __DIR__ . '/../../config/querys.php'; ?>
+<!DOCTYPE HTML>
+<html ng-app="ibiblioteca">
+    <head>
+        <meta charset="UTF-8">
+        <title>iBiblioteca</title>
+        <link rel="stylesheet" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/css/main.css">
+        <script src="/assets/bower_components/angular/angular.min.js"></script>
+        <script src="/assets/bower_components/angular/angular-route.min.js"></script>
+        <script src="/assets/js/angular/ibiblioteca.js"></script>
+        <script src="/assets/js/angular/controllers/editora.js"></script>
 
-<h1>Lista de livros</h1>
 
-<table class="table">
-    <tr>
-        <td>titulo</td>
-        <td>descricao</td>
-        <td>categoria</td>
-        <td>autor</td>
-        <td>editora</td>
-        <td>Opções</td>
-    </tr>
+    </head>
 
-    <?php while ($livro = $consulta_livros->fetch(PDO::FETCH_ASSOC)): ?>
-        <tr>
-            <td><?php echo $livro['titulo'] ?></td>
-            <td><?php echo $livro['descricao'] ?></td>
-            <td><?php echo $livro['categoria'] ?></td>
-            <td><?php echo $livro['autor'] ?></td>
-            <td><?php echo $livro['editora'] ?></td>
-            <?php echo "<td><a class='btn btn-primary' href=edit_livro.php?id=" . $livro['id_livros'] . "&titulo=" . urlencode($livro['titulo']) . "&descricao=" . $livro['descricao'] . "&categoria=" . $livro['categoria'] . "&autor=" . $livro['autor'] . "&editora=" . $livro['editora'] . "&data_lancamento=" . $livro['data_lancamento'] . "><i class='fa fa-search'></i></a></td>" ?>
-        </tr>
-    <?php endwhile; ?>
+    <body>
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-dark bg-inverse">
+                  <ul class="nav navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="index.php">Listar Livros <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="cad_autor.php">Autor</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="cad_editora.php">Editora</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="cad_livro.php">Cadastrar Livro</a>
+                    </li>
+                  </ul>
+                </nav>
+            </div>
+        </div>
 
-</table>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12" ng-view>
 
-<?php include_once 'includes/estrutura-bottom.php' ?>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
