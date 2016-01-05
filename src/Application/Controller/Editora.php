@@ -42,6 +42,10 @@ class Editora extends EditoraModel {
         $this->data_edit = $data_edit;
     }
 
+    public function getAll() {
+        return parent::getAll();
+    }
+
     public function insert() {
         parent::insert($this->nome, $this->data_fundacao, $this->data_cri);
     }

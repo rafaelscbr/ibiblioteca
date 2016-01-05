@@ -10,6 +10,7 @@
         <script src="/assets/bower_components/angular/angular.min.js"></script>
         <script src="/assets/bower_components/angular/angular-route.min.js"></script>
         <script src="/assets/js/angular/ibiblioteca.js"></script>
+        <script src="/assets/js/angular/services/editora.js"></script>
         <script src="/assets/js/angular/controllers/editora.js"></script>
 
 

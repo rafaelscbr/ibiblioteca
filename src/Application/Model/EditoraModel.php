@@ -9,6 +9,11 @@ class EditoraModel {
         $this->db = $db;
     }
 
+    public function getAll(){
+        $stmt = $this->db->query("SELECT * FROM $this->table");
+        return $stmt->fetchAll();
+    }
+
     public function insert($nome, $data_fundacao, $data_cri) {
         $stmt = $this->db->prepare("INSERT INTO $this->table (nome, data_fundacao, data_cri) VALUES (:nome, :data_fundacao, :data_cri)");
         $stmt->bindParam(":nome", $nome);
